@@ -10,10 +10,7 @@ data = pandas.read_excel("./bin/data.xlsx")
 # Functions
 
 def item_index(column, cell):
-    for i in range(0, len(column)):
-        if column[i] != cell: i+=1
-        else: break
-    return i
+    return [i for i in range(len(column)) if column[i] == cell][0]
 
 def inbreeding_check(cow, cow_num):
     return [i for i in data['Cattle'] if i != data['Relations'][cow_num] and i != cow]
